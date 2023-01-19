@@ -44,15 +44,104 @@ annotations from [COCO-Stuff](https://github.com/nightrome/cocostuff), which
 should be placed under `data/cocostuffthings`.
 
 
+#### COCO-stuff 2017 
+##### Standard split (Layout2I & Label2I)
+- We follow [TwFA](https://openaccess.thecvf.com/content/CVPR2022/papers/Yang_Modeling_Image_Composition_for_Complex_Scene_Generation_CVPR_2022_paper.pdf) and [LAMA](https://openaccess.thecvf.com/content/ICCV2021/papers/Li_Image_Synthesis_From_Layout_With_Locality-Aware_Mask_Adaption_ICCV_2021_paper.pdf) to perform layout-to-image experiment on COCO-stuff 2017, which can be downloaded from [official COCO website](https://cocodataset.org/#download).
+- Please create a folder name `2017` and collect the downloaded data and annotations as follows.
+
+   <details><summary>COCO-stuff 2017 split file structure</summary>
+
+   ```
+   >2017
+   ├── annotations
+   │   └── captions_val2017.json
+   │   └── ...
+   └── val2017
+      └── 000000000872.jpg
+      └── ... 
+   ```
+
+   </details>
+
+
+#### Visual Genome (Layout2I & SG2I)
+- We follow [TwFA](https://openaccess.thecvf.com/content/CVPR2022/papers/Yang_Modeling_Image_Composition_for_Complex_Scene_Generation_CVPR_2022_paper.pdf) and [LAMA](https://openaccess.thecvf.com/content/ICCV2021/papers/Li_Image_Synthesis_From_Layout_With_Locality-Aware_Mask_Adaption_ICCV_2021_paper.pdf) to perform layout-to-image experiments on Visual Genome.
+- Also, we follow [Sg2Im](https://arxiv.org/abs/1804.01622) and [CanonicalSg2Im](https://roeiherz.github.io/CanonicalSg2Im/) to conduct scene-graph-to-image experiments on Visual Genome.
+- Firstly, please use the download scripts in [Sg2Im](https://github.com/google/sg2im/tree/master/scripts) to download and pre-process the Visual Genome dataset.
+- Secondly, Please use the script `TODO.py` to generate coco-style `vg.json` for both two tasks, as shown below:
+```bash
+python3 TODO.py [VG_DIR_PATH]
+``` 
+- Please create a folder name `vg` and collect the downloaded data and annotations as follows.
+
+   <details><summary>Visual Genome file structure</summary>
+
+   ```
+   >vg
+   ├── VG_100K
+   │   └── captions_val2017.json
+   │   └── ...
+   └── objects.json
+   └── train_coco_style.json
+   └── train.json
+   └── ...
+   ```
+
+   </details>
+
+
+## Evaluation
+### FID & SceneFID
+FID scores were evaluated by using [torch-fidelity](https://github.com/toshas/torch-fidelity).
+
+After running inference, FID score can be computed by the following command:
+```bash
+fidelity --gpu 0 --fid --input2 [GT_FOLDER] --input1 [PRED_FOLDER]
+```
+Example:
+```bash
+fidelity --gpu 0 --fid --input2 exp/t2i/frido_f16f8/samples/.../img/inputs --input1 exp/t2i/frido_f16f8/samples/.../img/sample
+```
+### CLIPscore
+
+Please refer to EMNLP 2021 CLIPScore.
+
+- paper: [CLIPScore: A Reference-free Evaluation Metric for Image Captioning](https://arxiv.org/abs/2104.08718) 
+- GitHub:
+[clipscore](https://github.com/jmhessel/clipscore)
+
+### Detection score (YOLO)
+
+We use YOLOv4 as pre-trained detector to calculate the detection score. Please refer to YOLOv4
+- paper [YOLOv4](https://arxiv.org/abs/2004.10934)
+- GitHub: [darknet](https://github.com/AlexeyAB/darknet) 
+
+### IS/Precision/Recall
+
+We use the scripts in ADM to calculate the IS, precision, and recall. 
+- paper [ADM](http://arxiv.org/abs/2105.0523).
+- GitHub: [guided-diffusion](https://github.com/openai/guided-diffusion) 
+
+### PSNR/SSIM
+
+To evaluate the reconstruction performance, we use the [PSNR](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) and [SSIM](https://en.wikipedia.org/wiki/Structural_similarity). The scripts can be found in the following python packages.
+- GitHub: [image-similarity-measures](https://github.com/up42/image-similarity-measures) 
+
+
+
+## Acknowledgement
+We build LayoutEnc codebase heavily on the codebase of [VQGAN](https://github.com/CompVis/taming-transformers). We sincerely thank the authors for open-sourcing! 
+
+
 ## BibTeX
 
 ```
-@misc{esser2020taming,
-      title={Taming Transformers for High-Resolution Image Synthesis}, 
-      author={Patrick Esser and Robin Rombach and Björn Ommer},
-      year={2020},
-      eprint={2012.09841},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@misc{
 }
 ```
+
+
+## License
+
+MIT
+
