@@ -1,4 +1,4 @@
-## Scene Image Synthesis
+# Layout Encoder Enable Complex Scene Synthesis
 ![teaser](assets/scene_images_samples.svg)
 Scene image generation based on bounding box conditionals as done. Supporting the datasets COCO and Visual Genome Images.
 
