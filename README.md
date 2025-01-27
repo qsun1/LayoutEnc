@@ -11,7 +11,7 @@ conda activate layoutenc
 
 ### Training
 Download first-stage models [COCO-8k-VQGAN](https://heibox.uni-heidelberg.de/f/78dea9589974474c97c1/).
-Change `ckpt_path` in `data/coco_scene_images_transformer.yaml` and `data/open_images_scene_images_transformer.yaml` to point to the downloaded first-stage models.
+Change `ckpt_path` in `configs/coco.yaml` to point to the downloaded first-stage models.
 Download the full COCO datasets and adapt `data_path` in the same files, unless working with the 100 files provided for training and validation suits your needs already.
 
 Code can be run with
