@@ -4,7 +4,7 @@
 - [x] Interactive demo
 - [ ] clean code and more description in data preparation
 - [x] Release pretrained checkpoint
-- [ ] Inference code
+- [x] Inference code
 - [ ] Training code
 ### Environment
 
@@ -38,3 +38,5 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
+
+### Citation
