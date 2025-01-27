@@ -1,11 +1,5 @@
-# LayoutEnc: Leveraging Effective Layout Representation for Complex Scene Synthesis
-### TODO
-- [x] Experiment environment
-- [x] Interactive demo
-- [ ] clean code and more description in data preparation
-- [x] Release pretrained checkpoint
-- [x] Inference code
-- [ ] Training code
+# LayoutEnc: Leveraging Enhanced Layout Representations for Transformer-based Complex Scene Synthesis (TOMM 2025)
+
 ### Environment
 
 Following [Taming Transformers](https://github.com/CompVis/taming-transformers), you should create such environment named `layoutenc`
@@ -14,6 +8,15 @@ Following [Taming Transformers](https://github.com/CompVis/taming-transformers),
 conda env create -f environment.yaml
 conda activate layoutenc
 ```
+
+### Training
+Download first-stage models [COCO-8k-VQGAN](https://heibox.uni-heidelberg.de/f/78dea9589974474c97c1/).
+Change `ckpt_path` in `data/coco_scene_images_transformer.yaml` and `data/open_images_scene_images_transformer.yaml` to point to the downloaded first-stage models.
+Download the full COCO datasets and adapt `data_path` in the same files, unless working with the 100 files provided for training and validation suits your needs already.
+
+Code can be run with
+`python main.py --base configs/coco.yaml -t True --gpus 0,`
+
 
 ### Demo (Local)
 You only need to run such script, have fun!
