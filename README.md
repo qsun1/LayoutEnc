@@ -17,6 +17,8 @@ Download the full COCO datasets and adapt `data_path` in the same files, unless 
 Code can be run with
 `python main.py --base configs/coco.yaml -t True --gpus 0,`
 
+Refer to [Taming Transformers](https://github.com/CompVis/taming-transformers) for more operations.
+
 
 ### Demo (Local)
 You only need to run such script, have fun!
