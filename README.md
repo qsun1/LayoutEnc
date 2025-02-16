@@ -45,3 +45,12 @@ Here are some ideas to get you started:
 -->
 
 ### Citation
+```
+@article{cui2025layoutenc,
+  title={LayoutEnc: Leveraging Enhanced Layout Representations for Transformer-based Complex Scene Synthesis},
+  author={Cui, Xiao and Sun, Qi and Wang, Min and Li, Li and Zhou, Wengang and Li, Houqiang},
+  journal={ACM Transactions on Multimedia Computing, Communications and Applications},
+  year={2025},
+  publisher={ACM New York, NY}
+}
+```
